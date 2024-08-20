@@ -1,6 +1,7 @@
 import React from "react";
 import "../pages/Dex.css";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const PCard = styled.div`
   display: flex;
@@ -16,12 +17,25 @@ const PCard = styled.div`
 `;
 
 const PokemonCard = ({ pokemon, handleTravel }) => {
+  const navigate = useNavigate();
+
+  const goToDetailPage = () => {
+    navigate(`/pokemon/${pokemon.id}`);
+  };
+
   return (
-    <PCard key={pokemon.id}>
+    <PCard key={pokemon.id} onClick={goToDetailPage}>
       <img src={pokemon.img_url} alt={pokemon.korean_name} />
       <span>No.{pokemon.id}</span>
       <span>{pokemon.korean_name}</span>
-      <button onClick={() => handleTravel(pokemon)}>같이 여행하기</button>
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          handleTravel(pokemon);
+        }}
+      >
+        같이 여행하기
+      </button>
     </PCard>
   );
 };
