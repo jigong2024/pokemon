@@ -7,13 +7,19 @@ const PCard = styled.div`
   display: flex;
   width: 130px;
   height: 200px;
-  border: 1px solid black;
+  border: 3px solid #ffcb05;
   border-radius: 10px;
   margin: 10px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 25px;
+  background-color: #ffffffdd;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
 `;
 
 const PokemonCard = ({ pokemon, handleTravel }) => {
