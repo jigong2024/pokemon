@@ -2,6 +2,15 @@
   background-image: url("/public/img/pxfuel.jpg");
 }
 
+.dex-page img {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+img:hover {
+  transform: translateY(2px);
+}
+
 .dashboard {
   display: flex;
   height: 230px;

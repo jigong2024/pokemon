@@ -40,7 +40,7 @@ const PokemonCard = ({ pokemon, handleTravel }) => {
           handleTravel(pokemon);
         }}
       >
-        같이 여행하기
+        너로 정했다!
       </button>
     </PCard>
   );

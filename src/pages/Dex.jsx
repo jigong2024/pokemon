@@ -3,9 +3,16 @@ import Dashboard from "../components/Dashboard";
 import PokemonList from "../components/PokemonList";
 import "./Dex.css";
 import MOCK_DATA from "../mock";
+import { useNavigate } from "react-router-dom";
 
 const Dex = () => {
   //   console.log(MOCK_DATA);
+  const navigate = useNavigate();
+
+  const handleHome = () => {
+    navigate("/");
+  };
+
   const [travelPokemon, setTravelPokemon] = useState([]);
 
   const handleTravel = (pokemon) => {
@@ -35,6 +42,11 @@ const Dex = () => {
 
   return (
     <div className="dex-page">
+      <img
+        src="/public/img/포켓몬스터볼.png"
+        alt={"홈으로 돌아가기"}
+        onClick={handleHome}
+      />
       <Dashboard travelPokemon={travelPokemon} handleDelete={handleDelete} />
       <PokemonList MOCK_DATA={MOCK_DATA} handleTravel={handleTravel} />
     </div>
