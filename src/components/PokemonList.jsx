@@ -2,18 +2,20 @@ import React from "react";
 import "../pages/Dex.css";
 import styled from "styled-components";
 
-const PokemonList = ({ MOCK_DATA }) => {
+const PokemonList = ({ MOCK_DATA, handleTravel }) => {
   const PCard = styled.div`
     display: flex;
-    width: 150px;
+    width: 130px;
     height: 200px;
     border: 1px solid black;
-    margin-right: 30px;
+    border-radius: 10px;
+    margin: 10px;
     flex-direction: column;
     flex-wrap: wrap;
     align-content: center;
     justify-content: center;
     align-items: center;
+    font-size: 25px;
   `;
 
   return (
@@ -22,9 +24,9 @@ const PokemonList = ({ MOCK_DATA }) => {
         return (
           <PCard key={pokemon.id}>
             <img src={pokemon.img_url} alt={pokemon.korean_name} />
-            <span>{pokemon.id}</span>
+            <span>No.{pokemon.id}</span>
             <span>{pokemon.korean_name}</span>
-            <button>추가</button>
+            <button onClick={() => handleTravel(pokemon)}>같이 여행하기</button>
           </PCard>
         );
       })}
