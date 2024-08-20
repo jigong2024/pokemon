@@ -2,22 +2,20 @@ import React from "react";
 import "../pages/Dex.css";
 import styled from "styled-components";
 
-const PokemonList = ({ MOCK_DATA, handleTravel }) => {
-  const PCard = styled.div`
-    display: flex;
-    width: 130px;
-    height: 200px;
-    border: 1px solid black;
-    border-radius: 10px;
-    margin: 10px;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-    font-size: 25px;
-  `;
+const PCard = styled.div`
+  display: flex;
+  width: 130px;
+  height: 200px;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin: 10px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+`;
 
+const PokemonList = ({ MOCK_DATA, handleTravel }) => {
   return (
     <div className="pokemon-list">
       {MOCK_DATA.map((pokemon) => {

@@ -25,9 +25,17 @@ const Dex = () => {
     }
   };
 
+  const handleDelete = (id) => {
+    const newPokemon = travelPokemon.filter((pokemon) => {
+      return pokemon.id !== id;
+    });
+
+    setTravelPokemon(newPokemon);
+  };
+
   return (
     <div className="dex-page">
-      <Dashboard travelPokemon={travelPokemon} />
+      <Dashboard travelPokemon={travelPokemon} handleDelete={handleDelete} />
       <PokemonList MOCK_DATA={MOCK_DATA} handleTravel={handleTravel} />
     </div>
   );
