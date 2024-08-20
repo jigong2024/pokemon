@@ -1,0 +1,26 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  background-image: url("/img/pokemonbackground.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.pokemon-logo {
+  width: 700px;
+  height: auto;
+}
+
+.pokemon-ball {
+  width: 150px;
+  height: auto;
+}
+
+.text {
+  color: white;
+}
