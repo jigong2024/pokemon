@@ -1,6 +1,7 @@
 import React from "react";
 import "../pages/Dex.css";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const PCard = styled.div`
   display: flex;
@@ -17,11 +18,18 @@ const PCard = styled.div`
 `;
 
 const Dashboard = ({ travelPokemon, handleDelete }) => {
+  const navigate = useNavigate();
+
+  const goToDetailPage = (pokemonId) => {
+    navigate(`/pokemon/${pokemonId}`);
+  };
+
   return (
     <div className="dashboard">
       <h2
         style={{
-          marginRight: "20px",
+          marginLeft: "10px",
+          minWidth: "76px",
         }}
       >
         나의
@@ -30,11 +38,16 @@ const Dashboard = ({ travelPokemon, handleDelete }) => {
       </h2>
       {travelPokemon.map((pokemon) => {
         return (
-          <PCard key={pokemon.id}>
+          <PCard key={pokemon.id} onClick={() => goToDetailPage(pokemon.id)}>
             <img src={pokemon.img_url} alt={pokemon.korean_name} />
             <span>No.{pokemon.id}</span>
             <span>{pokemon.korean_name}</span>
-            <button onClick={() => handleDelete(pokemon.id)}>
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                handleDelete(pokemon.id);
+              }}
+            >
               다음에 여행하기
             </button>
           </PCard>
