@@ -1,0 +1,13 @@
+.dex-page {
+  height: 100vh;
+}
+
+.dashboard {
+  height: 30%;
+  border: 5px solid black;
+}
+
+.pokemon-list {
+  height: 70%;
+  border: 5px solid black;
+}

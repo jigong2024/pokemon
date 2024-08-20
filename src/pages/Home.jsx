@@ -4,7 +4,7 @@ import "./Home.css";
 
 const Home = () => {
   return (
-    <div className="home-container">
+    <div className="home-page">
       <img
         src="/img/pokemonlogo.png"
         alt="Pokemon Logo"
