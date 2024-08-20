@@ -27,7 +27,7 @@ const PokemonDetail = () => {
       </h1>
       <img src={pokemon.img_url} alt={pokemon.korean_name} />
       <p>타입: {pokemon.types.join(", ")}</p>
-      <p>특징: {pokemon.description}</p>
+      <span>특징: {pokemon.description}</span>
       <button onClick={handleBack}>⬅️ 뒤로가기</button>
     </div>
   );
