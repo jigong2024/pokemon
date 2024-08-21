@@ -3,8 +3,9 @@ import Dashboard from "../components/Dashboard";
 import PokemonList from "../components/PokemonList";
 import "./Dex.css";
 import { useNavigate } from "react-router-dom";
+import MOCK_DATA from "../mock";
 
-const Dex = ({ MOCK_DATA }) => {
+const Dex = () => {
   //   console.log(MOCK_DATA);
   const navigate = useNavigate();
 
