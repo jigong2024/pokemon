@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import Dashboard from "../components/Dashboard";
 import PokemonList from "../components/PokemonList";
 import "./Dex.css";
-import MOCK_DATA from "../mock";
 import { useNavigate } from "react-router-dom";
 
-const Dex = () => {
+const Dex = ({ MOCK_DATA }) => {
   //   console.log(MOCK_DATA);
   const navigate = useNavigate();
 

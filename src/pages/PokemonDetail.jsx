@@ -1,9 +1,8 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import MOCK_DATA from "../mock";
 import "./PokemonDetail.css";
 
-const PokemonDetail = () => {
+const PokemonDetail = ({ MOCK_DATA }) => {
   const navigate = useNavigate();
 
   const handleBack = () => {
