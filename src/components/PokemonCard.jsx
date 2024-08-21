@@ -35,6 +35,7 @@ const PokemonCard = ({ pokemon, handleTravel }) => {
       <span>No.{pokemon.id}</span>
       <span>{pokemon.korean_name}</span>
       <button
+        className="add-btn"
         onClick={(e) => {
           e.stopPropagation();
           handleTravel(pokemon);

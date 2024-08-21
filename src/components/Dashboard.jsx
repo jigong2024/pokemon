@@ -7,7 +7,7 @@ const PCard = styled.div`
   display: flex;
   width: 110px;
   height: 200px;
-  border: 2px solid black;
+  /* border: 2px solid black; */
 
   border-radius: 10px;
   margin: 10px;
@@ -16,6 +16,7 @@ const PCard = styled.div`
   align-items: center;
   background-color: #e27a4ab3;
   transition: transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(145, 77, 5, 0.621);
 
   font-size: 25px;
 
@@ -50,6 +51,7 @@ const Dashboard = ({ travelPokemon, handleDelete }) => {
             <span>No.{pokemon.id}</span>
             <span>{pokemon.korean_name}</span>
             <button
+              className="delete-btn"
               onClick={(e) => {
                 e.stopPropagation();
                 handleDelete(pokemon.id);
