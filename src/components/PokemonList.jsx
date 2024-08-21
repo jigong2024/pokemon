@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../pages/Dex.css";
 import PokemonCard from "./PokemonCard";
+import PokemonContext from "../context/PokemonContext";
 
-const PokemonList = ({ MOCK_DATA, handleTravel }) => {
+const PokemonList = ({ handleTravel }) => {
+  const pokemonData = useContext(PokemonContext);
+
   return (
     <div className="pokemon-list">
-      {MOCK_DATA.map((pokemon) => {
+      {pokemonData.map((pokemon) => {
         return (
           <PokemonCard
             key={pokemon.id}

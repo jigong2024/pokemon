@@ -4,16 +4,20 @@ import Home from "./pages/Home";
 import Dex from "./pages/Dex";
 import "./App.css";
 import PokemonDetail from "./pages/PokemonDetail";
+import PokemonContext from "./context/PokemonContext";
+import MOCK_DATA from "./mock";
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/dex" element={<Dex />} />
-        <Route path="/pokemon/:id" element={<PokemonDetail />} />
-      </Routes>
-    </BrowserRouter>
+    <PokemonContext.Provider value={MOCK_DATA}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/dex" element={<Dex />} />
+          <Route path="/pokemon/:id" element={<PokemonDetail />} />
+        </Routes>
+      </BrowserRouter>
+    </PokemonContext.Provider>
   );
 };
 

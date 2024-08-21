@@ -1,12 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Dashboard from "../components/Dashboard";
 import PokemonList from "../components/PokemonList";
 import "./Dex.css";
-import MOCK_DATA from "../mock";
 import { useNavigate } from "react-router-dom";
 
 const Dex = () => {
-  //   console.log(MOCK_DATA);
   const navigate = useNavigate();
 
   const handleHome = () => {
@@ -48,7 +46,7 @@ const Dex = () => {
         onClick={handleHome}
       />
       <Dashboard travelPokemon={travelPokemon} handleDelete={handleDelete} />
-      <PokemonList MOCK_DATA={MOCK_DATA} handleTravel={handleTravel} />
+      <PokemonList handleTravel={handleTravel} />
     </div>
   );
 };

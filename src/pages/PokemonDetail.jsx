@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import MOCK_DATA from "../mock";
 import "./PokemonDetail.css";
+import PokemonContext from "../context/PokemonContext";
 
 const PokemonDetail = () => {
+  const pokemonData = useContext(PokemonContext);
+
   const navigate = useNavigate();
 
   const handleBack = () => {
@@ -11,10 +13,8 @@ const PokemonDetail = () => {
   };
 
   const { id } = useParams();
-  //   console.log(typeof id);
-  //   console.log(typeof MOCK_DATA[1].id);
-  console.log(MOCK_DATA);
-  const pokemon = MOCK_DATA.find((pokemon) => pokemon.id === parseInt(id));
+
+  const pokemon = pokemonData.find((pokemon) => pokemon.id === parseInt(id));
 
   if (!pokemon) {
     alert("포켓몬을 찾을 수 없습니다!");
