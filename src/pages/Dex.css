@@ -33,3 +33,21 @@ img:hover {
   justify-content: space-between;
   min-width: 720px;
 }
+
+.add-btn {
+  cursor: pointer;
+  border-radius: 6px;
+  border: 2px solid rgb(245, 196, 34);
+  background-color: rgb(245, 196, 34);
+  color: white;
+  font-size: 13px;
+}
+
+.delete-btn {
+  cursor: pointer;
+  border-radius: 6px;
+  border: 2px solid rgb(220, 83, 20);
+  background-color: rgb(220, 83, 20);
+  color: white;
+  font-size: 10px;
+}
