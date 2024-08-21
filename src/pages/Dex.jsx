@@ -3,15 +3,16 @@ import Dashboard from "../components/Dashboard";
 import PokemonList from "../components/PokemonList";
 import "./Dex.css";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Dex = () => {
+  const [travelPokemon, setTravelPokemon] = useState([]);
+
   const navigate = useNavigate();
 
   const handleHome = () => {
     navigate("/");
   };
-
-  const [travelPokemon, setTravelPokemon] = useState([]);
 
   const handleTravel = (pokemon) => {
     if (travelPokemon.length >= 6) {

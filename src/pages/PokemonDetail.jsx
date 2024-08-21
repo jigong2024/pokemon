@@ -8,10 +8,6 @@ const PokemonDetail = () => {
 
   const navigate = useNavigate();
 
-  const handleBack = () => {
-    navigate(-1);
-  };
-
   const { id } = useParams();
 
   const pokemon = pokemonData.find((pokemon) => pokemon.id === parseInt(id));
@@ -19,6 +15,10 @@ const PokemonDetail = () => {
   if (!pokemon) {
     alert("포켓몬을 찾을 수 없습니다!");
   }
+
+  const handleBack = () => {
+    navigate(-1);
+  };
 
   return (
     <div className="detail-container">
