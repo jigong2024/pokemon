@@ -1,4 +1,3 @@
-import React, { useContext, useState } from "react";
 import Dashboard from "../components/Dashboard";
 import PokemonList from "../components/PokemonList";
 import "./Dex.css";
@@ -6,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { addPokemon, deletePokemon } from "../store/action";
+import { addPokemon } from "../store/action";
 
 const Dex = () => {
   const navigate = useNavigate();

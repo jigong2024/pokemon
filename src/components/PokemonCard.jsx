@@ -1,8 +1,6 @@
-import React from "react";
 import "../pages/Dex.css";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import { addPokemon } from "../store/action";
 
 const PCard = styled.div`
   display: flex;
