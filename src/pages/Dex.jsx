@@ -18,11 +18,8 @@ const Dex = () => {
     navigate("/");
   };
 
-  // const [travelPokemon, setTravelPokemon] = useState([]);
-
   const handleTravel = (pokemon) => {
     if (travelPokemon.length >= 6) {
-      // alert("최대 6마리의 포켓몬만 여행에 데리고갈 수 있습니다!");
       Swal.fire({
         title: "최대 6마리의 포켓몬만 여행에 데리고갈 수 있습니다!",
         width: 600,
@@ -44,7 +41,6 @@ const Dex = () => {
     );
 
     if (isAlreadyPokemon) {
-      // alert("동일한 포켓몬이 존재합니다!");
       Swal.fire({
         icon: "error",
         title: "동일한 포켓몬이 존재합니다...",
@@ -54,10 +50,6 @@ const Dex = () => {
       dispatch(addPokemon(pokemon));
     }
   };
-
-  // const handleDelete = (id) => {
-  //   dispatch(deletePokemon(id));
-  // };
 
   return (
     <div className="dex-page">
