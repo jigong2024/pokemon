@@ -2,7 +2,6 @@ import React from "react";
 import "../pages/Dex.css";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
 import { addPokemon } from "../store/action";
 
 const PCard = styled.div`
@@ -24,9 +23,8 @@ const PCard = styled.div`
   }
 `;
 
-const PokemonCard = ({ pokemon }) => {
+const PokemonCard = ({ pokemon, handleTravel }) => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   const goToDetailPage = () => {
     navigate(`/pokemon/${pokemon.id}`);
@@ -41,7 +39,7 @@ const PokemonCard = ({ pokemon }) => {
         className="add-btn"
         onClick={(e) => {
           e.stopPropagation();
-          dispatch(addPokemon(pokemon));
+          handleTravel(pokemon);
         }}
       >
         너로 정했다!

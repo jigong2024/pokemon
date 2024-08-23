@@ -3,13 +3,19 @@ import "../pages/Dex.css";
 import PokemonCard from "./PokemonCard";
 import PokemonContext from "../context/PokemonContext";
 
-const PokemonList = () => {
+const PokemonList = ({ handleTravel }) => {
   const pokemonData = useContext(PokemonContext);
 
   return (
     <div className="pokemon-list">
       {pokemonData.map((pokemon) => {
-        return <PokemonCard key={pokemon.id} pokemon={pokemon} />;
+        return (
+          <PokemonCard
+            key={pokemon.id}
+            pokemon={pokemon}
+            handleTravel={handleTravel}
+          />
+        );
       })}
     </div>
   );

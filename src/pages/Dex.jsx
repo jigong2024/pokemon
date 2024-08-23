@@ -55,9 +55,9 @@ const Dex = () => {
     }
   };
 
-  const handleDelete = (id) => {
-    dispatch(deletePokemon(id));
-  };
+  // const handleDelete = (id) => {
+  //   dispatch(deletePokemon(id));
+  // };
 
   return (
     <div className="dex-page">
@@ -66,7 +66,7 @@ const Dex = () => {
         alt={"홈으로 돌아가기"}
         onClick={handleHome}
       />
-      <Dashboard travelPokemon={travelPokemon} handleDelete={handleDelete} />
+      <Dashboard travelPokemon={travelPokemon} />
       <PokemonList handleTravel={handleTravel} />
     </div>
   );
