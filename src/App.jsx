@@ -7,7 +7,7 @@ import PokemonDetail from "./pages/PokemonDetail";
 import PokemonContext from "./context/PokemonContext";
 import MOCK_DATA from "./mock";
 import { Provider } from "react-redux";
-import store from "./sotre";
+import store from "./store";
 
 const App = () => {
   return (

@@ -4,15 +4,21 @@ import PokemonList from "../components/PokemonList";
 import "./Dex.css";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { addPokemon, deletePokemon } from "../store/action";
 
 const Dex = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const travelPokemon = useSelector((state) => state.travelPokemon);
 
   const handleHome = () => {
     navigate("/");
   };
 
-  const [travelPokemon, setTravelPokemon] = useState([]);
+  // const [travelPokemon, setTravelPokemon] = useState([]);
 
   const handleTravel = (pokemon) => {
     if (travelPokemon.length >= 6) {
@@ -45,16 +51,12 @@ const Dex = () => {
         text: "다른 아이를 데려가주세요!",
       });
     } else {
-      setTravelPokemon([...travelPokemon, pokemon]);
+      dispatch(addPokemon(pokemon));
     }
   };
 
   const handleDelete = (id) => {
-    const newPokemon = travelPokemon.filter((pokemon) => {
-      return pokemon.id !== id;
-    });
-
-    setTravelPokemon(newPokemon);
+    dispatch(deletePokemon(id));
   };
 
   return (

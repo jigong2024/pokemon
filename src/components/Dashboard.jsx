@@ -2,6 +2,8 @@ import React from "react";
 import "../pages/Dex.css";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { deletePokemon } from "../store/action";
 
 const PCard = styled.div`
   display: flex;
@@ -25,8 +27,9 @@ const PCard = styled.div`
   }
 `;
 
-const Dashboard = ({ travelPokemon, handleDelete }) => {
+const Dashboard = ({ travelPokemon }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const goToDetailPage = (pokemonId) => {
     navigate(`/pokemon/${pokemonId}`);
@@ -54,7 +57,7 @@ const Dashboard = ({ travelPokemon, handleDelete }) => {
               className="delete-btn"
               onClick={(e) => {
                 e.stopPropagation();
-                handleDelete(pokemon.id);
+                dispatch(deletePokemon(pokemon.id));
               }}
             >
               다음에 여행하기
