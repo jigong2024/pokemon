@@ -4,7 +4,46 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { deletePokemon } from "../store/action";
 
-const PCard = styled.div`
+const Dashboard = ({ travelPokemon }) => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const goToDetailPage = (pokemonId) => {
+    navigate(`/pokemon/${pokemonId}`);
+  };
+
+  return (
+    <div className="dashboard">
+      <h2>
+        나의
+        <br />
+        포켓몬
+      </h2>
+      {travelPokemon.map((pokemon) => {
+        return (
+          <Pcard key={pokemon.id} onClick={() => goToDetailPage(pokemon.id)}>
+            <img src={pokemon.img_url} alt={pokemon.korean_name} />
+            <span>No.{pokemon.id}</span>
+            <span>{pokemon.korean_name}</span>
+            <button
+              className="delete-btn"
+              onClick={(e) => {
+                e.stopPropagation();
+                dispatch(deletePokemon(pokemon.id));
+              }}
+            >
+              다음에 여행하기
+            </button>
+          </Pcard>
+        );
+      })}
+    </div>
+  );
+};
+
+export default Dashboard;
+
+const Pcard = styled.div`
   display: flex;
   width: 110px;
   height: 200px;
@@ -25,47 +64,3 @@ const PCard = styled.div`
     transform: translateY(-5px);
   }
 `;
-
-const Dashboard = ({ travelPokemon }) => {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-
-  const goToDetailPage = (pokemonId) => {
-    navigate(`/pokemon/${pokemonId}`);
-  };
-
-  return (
-    <div className="dashboard">
-      <h2
-        style={{
-          marginLeft: "10px",
-          minWidth: "76px",
-        }}
-      >
-        나의
-        <br />
-        포켓몬
-      </h2>
-      {travelPokemon.map((pokemon) => {
-        return (
-          <PCard key={pokemon.id} onClick={() => goToDetailPage(pokemon.id)}>
-            <img src={pokemon.img_url} alt={pokemon.korean_name} />
-            <span>No.{pokemon.id}</span>
-            <span>{pokemon.korean_name}</span>
-            <button
-              className="delete-btn"
-              onClick={(e) => {
-                e.stopPropagation();
-                dispatch(deletePokemon(pokemon.id));
-              }}
-            >
-              다음에 여행하기
-            </button>
-          </PCard>
-        );
-      })}
-    </div>
-  );
-};
-
-export default Dashboard;
