@@ -1,22 +1,24 @@
-import React, { useContext, useState } from "react";
 import Dashboard from "../components/Dashboard";
 import PokemonList from "../components/PokemonList";
 import "./Dex.css";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { addPokemon } from "../store/action";
 
 const Dex = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const travelPokemon = useSelector((state) => state.travelPokemon);
 
   const handleHome = () => {
     navigate("/");
   };
 
-  const [travelPokemon, setTravelPokemon] = useState([]);
-
   const handleTravel = (pokemon) => {
     if (travelPokemon.length >= 6) {
-      // alert("최대 6마리의 포켓몬만 여행에 데리고갈 수 있습니다!");
       Swal.fire({
         title: "최대 6마리의 포켓몬만 여행에 데리고갈 수 있습니다!",
         width: 600,
@@ -38,23 +40,14 @@ const Dex = () => {
     );
 
     if (isAlreadyPokemon) {
-      // alert("동일한 포켓몬이 존재합니다!");
       Swal.fire({
         icon: "error",
         title: "동일한 포켓몬이 존재합니다...",
         text: "다른 아이를 데려가주세요!",
       });
     } else {
-      setTravelPokemon([...travelPokemon, pokemon]);
+      dispatch(addPokemon(pokemon));
     }
-  };
-
-  const handleDelete = (id) => {
-    const newPokemon = travelPokemon.filter((pokemon) => {
-      return pokemon.id !== id;
-    });
-
-    setTravelPokemon(newPokemon);
   };
 
   return (
@@ -64,7 +57,7 @@ const Dex = () => {
         alt={"홈으로 돌아가기"}
         onClick={handleHome}
       />
-      <Dashboard travelPokemon={travelPokemon} handleDelete={handleDelete} />
+      <Dashboard travelPokemon={travelPokemon} />
       <PokemonList handleTravel={handleTravel} />
     </div>
   );
