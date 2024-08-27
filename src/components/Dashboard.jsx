@@ -2,7 +2,7 @@ import "../pages/Dex.css";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { deletePokemon } from "../store/action";
+import { pokemonActions } from "../store/pokemonSlice";
 
 const Dashboard = ({ travelPokemon }) => {
   const navigate = useNavigate();
@@ -29,7 +29,7 @@ const Dashboard = ({ travelPokemon }) => {
               className="delete-btn"
               onClick={(e) => {
                 e.stopPropagation();
-                dispatch(deletePokemon(pokemon.id));
+                dispatch(pokemonActions.deletePokemon(pokemon.id));
               }}
             >
               다음에 여행하기

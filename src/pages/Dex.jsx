@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { addPokemon } from "../store/action";
+import { pokemonActions } from "../store/pokemonSlice";
 
 const Dex = () => {
   const navigate = useNavigate();
@@ -46,7 +46,7 @@ const Dex = () => {
         text: "다른 아이를 데려가주세요!",
       });
     } else {
-      dispatch(addPokemon(pokemon));
+      dispatch(pokemonActions.addPokemon(pokemon));
     }
   };
 
