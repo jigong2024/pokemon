@@ -4,6 +4,7 @@
 
 ## 프로젝트 구조
 
+```
 src/
 ├── App.jsx
 ├── components/
@@ -20,6 +21,7 @@ src/
 ├── actions.js
 ├── reducers.js
 └── index.js
+```
 
 ### 주요 컴포넌트 및 기능
 
