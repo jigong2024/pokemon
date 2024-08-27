@@ -1,7 +1,9 @@
-import { createStore } from "redux";
-import pokemonReducer from "./reducer";
+import { configureStore } from "@reduxjs/toolkit";
+import { pokemonReducer } from "./pokemonSlice";
 
 // 스토어 생성
-const store = createStore(pokemonReducer);
+const store = configureStore({
+  reducer: pokemonReducer,
+});
 
 export default store;
